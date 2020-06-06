@@ -3,11 +3,21 @@ import Search from './components/search';
 import List from './components/list';
 
 export default class App extends Component{
+  state={
+    searchName:''
+  }
+  updateSearchName=(searchName)=>{
+    this.setState({
+      searchName
+    })
+  }
+
 	render(){
+    const {searchName}=this.state;
 		return(
 			<div className="container">
-      <Search/>
-      <List/>
+      <Search updateSearchName={this.updateSearchName}/>
+      <List searchName={searchName}/>
     </div>
 		)
 	}
